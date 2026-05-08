@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import StudentDetail
+from .forms import StudentForm
 
 # Create your views here.
 def homepage(request):
@@ -9,4 +10,8 @@ def homepage(request):
     }
     return render(request, 'homepage.html', context)
 def add_student(request):
-    return render(request, 'add_student.html')
+    form=StudentForm()
+    context={
+        "form": form
+    }
+    return render(request, 'add_student.html', context)

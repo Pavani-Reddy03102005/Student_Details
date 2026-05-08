@@ -2,13 +2,14 @@
 <h1 class="text-center mt-3 mb-3">Students list</h1>
 <div class="container">
 <table class="table table-striped">
-  <thead>
+  <thead class="border border-secondary border-2 rounded">
     <tr>
       <th scope="col">S.no</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Course</th>
       <th scope="col">Enroll Date</th>
+      <th scope="col" class="text-center">Action</th>
     </tr>
   </thead>
   </tbody>
@@ -19,6 +20,11 @@
     <td>{{ student.email }}</td>
     <td>{{ student.course }}</td>
     <td>{{ student.enroll_date }}</td>
+    <td>
+          <a href="#" class="btn btn-primary" tabindex="-1" role="button">View</a>
+          <a href="#" class="btn btn-success" tabindex="-1" role="button">Update</a>
+          <a href="#" class="btn btn-danger" tabindex="-1" role="button">Delete</a>
+    </td>
   </tr>
   {% endfor %}
 </table>
