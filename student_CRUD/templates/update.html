@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+</head>
+<body>
+
+<h2>Update Student</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    Name: <input type="text" name="name" value="{{ student.name }}"><br><br>
+    Email: <input type="email" name="email" value="{{ student.email }}"><br><br>
+    Course: <input type="text" name="course" value="{{ student.course }}"><br><br>
+    Enroll Date: <input type="date" name="enroll_date" value="{{ student.enroll_date }}"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

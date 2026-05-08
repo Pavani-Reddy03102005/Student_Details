@@ -1,5 +1,11 @@
-{%extends "master.html"%}{% block title%}Student list{%endblock title%}{% block content%}
+{% extends "master.html" %}
+
+{% block title %}Student list{% endblock title %}
+
+{% block content %}
+
 <h1 class="text-center mt-3 mb-3">Students list</h1>
+
 <div class="container">
 <table class="table table-striped">
   <thead class="border border-secondary border-2 rounded">
@@ -12,21 +18,25 @@
       <th scope="col" class="text-center">Action</th>
     </tr>
   </thead>
+
+  <tbody>
+    {% for student in students %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ student.student_name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.course }}</td>
+        <td>{{ student.enrollment_date }}</td>
+        <td>
+            <a href="{% url 'details' student.id %}" class="btn btn-primary btn-sm">View</a>
+            <a href="{% url 'update' student.id %}" class="btn btn-success btn-sm">Update</a>
+            <a href="{% url 'delete-student' student.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
   </tbody>
-  {% for student in students %}
-  <tr>
-    <th scope="row">{{ forloop.counter }}</th>
-    <td>{{ student.name }}</td>
-    <td>{{ student.email }}</td>
-    <td>{{ student.course }}</td>
-    <td>{{ student.enroll_date }}</td>
-    <td>
-          <a href="#" class="btn btn-primary" tabindex="-1" role="button">View</a>
-          <a href="#" class="btn btn-success" tabindex="-1" role="button">Update</a>
-          <a href="#" class="btn btn-danger" tabindex="-1" role="button">Delete</a>
-    </td>
-  </tr>
-  {% endfor %}
+
 </table>
 </div>
-{%endblock content%}
+
+{% endblock content %}
