@@ -1,15 +1,43 @@
 {% extends "master.html" %}
+
+{% block title %}
+Student Details
+{% endblock title %}
+
 {% block content %}
 
-<h1 class="text-center mt-3 mb-3">Student Details</h1>
+<div class="container mt-5">
 
-<div class="container">
-  <form method="POST" action="#">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <h2 class="mb-4">Student Details</h2>
 
-    <button type="submit" class="btn btn-primary">Update</button>
-  </form>
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Name</th>
+            <td>{{ student.name }}</td>
+        </tr>
+
+        <tr>
+            <th>Email</th>
+            <td>{{ student.email }}</td>
+        </tr>
+
+        <tr>
+            <th>Course</th>
+            <td>{{ student.course }}</td>
+        </tr>
+
+        <tr>
+            <th>Enroll Date</th>
+            <td>{{ student.enroll_date }}</td>
+        </tr>
+
+    </table>
+
+    <a href="{% url 'homepage' %}" class="btn btn-primary">
+        Back
+    </a>
+
 </div>
 
 {% endblock content %}
